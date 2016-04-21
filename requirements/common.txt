@@ -2,15 +2,16 @@ django>=1.8.12,<1.9
 django-cms>=3.2.3,<3.3
 djangocms-text-ckeditor>=2.9.1,<3
 django-reversion>=1.10.2,<1.11
-django_filer>=1.1.1,<1.2
-cmsplugin_filer>=1.0.1,<1.1
-
-# Optional plugins
-# djangocms-link
-# djangocms-snippet
-# djangocms-style
-# djangocms-column
-# djangocms-grid
-# djangocms-oembed
-# djangocms-table
-# djangocms-flash
+django-filer>=1.1.1,<1.2
+cmsplugin-filer>=1.0.1,<1.1
+easy-thumbnails>=2.3,<3
+djangocms-link>=1.7.2,<2
+djangocms-snippet>=1.8.0,<2
+djangocms-style>=1.7.0,<2
+djangocms-column>=1.6,<2
+djangocms-grid>=1.3,<2
+djangocms-oembed>=0.5
+djangocms-table>=1.2,<2
+djangocms-flash>=0.3
+djangocms-googlemap>=0.4
+djangocms-inherit>=0.1.1

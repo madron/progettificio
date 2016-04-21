@@ -11,3 +11,5 @@ DATABASES = {
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# MIDDLEWARE_CLASSES.insert(0, 'cms.middleware.utils.ApphookReloadMiddleware')
