@@ -1,0 +1,10 @@
+[
+    {
+        "model": "association.member",
+        "pk": 1,
+        "fields": {
+            "surname": "Black",
+            "name": "Joe"
+        }
+    }
+]
