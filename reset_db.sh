@@ -3,4 +3,4 @@ rm -f db.sqlite3
 
 ./manage.py migrate --noinput --verbosity=1
 
-./manage.py loaddata settings/auth_admin.json
+./manage.py loaddata auth_admin.json

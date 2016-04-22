@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'association',
+    'authentication',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
