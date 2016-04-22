@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'progettificio',
     'association',
     'authentication',
     'djangocms_admin_style',
@@ -87,7 +88,7 @@ ROOT_URLCONF = 'settings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
+        'DIRS': [],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
