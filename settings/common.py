@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'association',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
