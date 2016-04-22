@@ -1,0 +1,211 @@
+[
+{
+    "fields": {
+        "clipboard": 1,
+        "user": 1,
+        "language": "it"
+    },
+    "model": "cms.usersettings",
+    "pk": 1
+},
+{
+    "fields": {
+        "navigation_extenders": null,
+        "site": 1,
+        "application_namespace": null,
+        "path": "0001",
+        "in_navigation": true,
+        "reverse_id": null,
+        "login_required": false,
+        "created_by": "script",
+        "languages": "it",
+        "publication_end_date": null,
+        "template": "feature.html",
+        "placeholders": [
+            2,
+            3
+        ],
+        "changed_date": "2016-04-22T19:09:05.751Z",
+        "limit_visibility_in_menu": null,
+        "parent": null,
+        "numchild": 0,
+        "soft_root": false,
+        "is_home": true,
+        "publication_date": "2016-04-22T19:09:05.569Z",
+        "creation_date": "2016-04-22T19:08:23.676Z",
+        "publisher_public": 2,
+        "application_urls": null,
+        "changed_by": "admin",
+        "publisher_is_draft": true,
+        "xframe_options": 0,
+        "depth": 1,
+        "revision_id": 0
+    },
+    "model": "cms.page",
+    "pk": 1
+},
+{
+    "fields": {
+        "navigation_extenders": null,
+        "site": 1,
+        "application_namespace": null,
+        "path": "0002",
+        "in_navigation": true,
+        "reverse_id": null,
+        "login_required": false,
+        "created_by": "admin",
+        "languages": "it",
+        "publication_end_date": null,
+        "template": "feature.html",
+        "placeholders": [
+            4,
+            5
+        ],
+        "changed_date": "2016-04-22T19:09:05.672Z",
+        "limit_visibility_in_menu": null,
+        "parent": null,
+        "numchild": 0,
+        "soft_root": false,
+        "is_home": true,
+        "publication_date": "2016-04-22T19:09:05.569Z",
+        "creation_date": "2016-04-22T19:09:05.578Z",
+        "publisher_public": 1,
+        "application_urls": null,
+        "changed_by": "admin",
+        "publisher_is_draft": false,
+        "xframe_options": 0,
+        "depth": 1,
+        "revision_id": 0
+    },
+    "model": "cms.page",
+    "pk": 2
+},
+{
+    "fields": {
+        "slot": "clipboard",
+        "default_width": null
+    },
+    "model": "cms.placeholder",
+    "pk": 1
+},
+{
+    "fields": {
+        "slot": "content",
+        "default_width": null
+    },
+    "model": "cms.placeholder",
+    "pk": 2
+},
+{
+    "fields": {
+        "slot": "feature",
+        "default_width": null
+    },
+    "model": "cms.placeholder",
+    "pk": 3
+},
+{
+    "fields": {
+        "slot": "feature",
+        "default_width": null
+    },
+    "model": "cms.placeholder",
+    "pk": 4
+},
+{
+    "fields": {
+        "slot": "content",
+        "default_width": null
+    },
+    "model": "cms.placeholder",
+    "pk": 5
+},
+{
+    "fields": {
+        "changed_date": "2016-04-22T19:19:26.735Z",
+        "language": "it",
+        "parent": null,
+        "numchild": 0,
+        "creation_date": "2016-04-22T19:08:37.294Z",
+        "depth": 1,
+        "position": 0,
+        "path": "0001",
+        "placeholder": 3,
+        "plugin_type": "TextPlugin"
+    },
+    "model": "cms.cmsplugin",
+    "pk": 1
+},
+{
+    "fields": {
+        "changed_date": "2016-04-22T19:19:31.108Z",
+        "language": "it",
+        "parent": null,
+        "numchild": 0,
+        "creation_date": "2016-04-22T19:08:37.294Z",
+        "depth": 1,
+        "position": 0,
+        "path": "0002",
+        "placeholder": 4,
+        "plugin_type": "TextPlugin"
+    },
+    "model": "cms.cmsplugin",
+    "pk": 3
+},
+{
+    "fields": {
+        "menu_title": null,
+        "meta_description": null,
+        "page_title": null,
+        "language": "it",
+        "title": "Home",
+        "has_url_overwrite": false,
+        "redirect": null,
+        "publisher_is_draft": true,
+        "page": 1,
+        "published": true,
+        "path": "",
+        "publisher_state": 0,
+        "creation_date": "2016-04-22T19:08:23.721Z",
+        "slug": "home",
+        "publisher_public": 2
+    },
+    "model": "cms.title",
+    "pk": 1
+},
+{
+    "fields": {
+        "menu_title": null,
+        "meta_description": null,
+        "page_title": null,
+        "language": "it",
+        "title": "Home",
+        "has_url_overwrite": false,
+        "redirect": null,
+        "publisher_is_draft": false,
+        "page": 2,
+        "published": true,
+        "path": "",
+        "publisher_state": 0,
+        "creation_date": "2016-04-22T19:08:23.721Z",
+        "slug": "home",
+        "publisher_public": 1
+    },
+    "model": "cms.title",
+    "pk": 2
+},
+{
+    "fields": {
+        "body": "<h1>Progettificio</h1>\n\n<h2>Officina delle Idee</h2>\n"
+    },
+    "model": "djangocms_text_ckeditor.text",
+    "pk": 1
+},
+{
+    "fields": {
+        "body": "<h1>Progettificio</h1>\n\n<h2>Officina delle Idee</h2>\n"
+    },
+    "model": "djangocms_text_ckeditor.text",
+    "pk": 3
+}
+]

@@ -5,4 +5,6 @@ rm -f db.sqlite3
 
 ./manage.py loaddata \
     auth_admin.json \
-    association_test.json
+    association_test.json \
+    sites.json \
+    progettificio.json
