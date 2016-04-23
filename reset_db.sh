@@ -4,7 +4,7 @@ rm -f db.sqlite3
 ./manage.py migrate --noinput --verbosity=1
 
 ./manage.py loaddata \
-    auth_admin.json \
-    association_test.json \
-    sites.json \
-    progettificio.json
+    auth_admin \
+    association_test \
+    sites \
+    progettificio
