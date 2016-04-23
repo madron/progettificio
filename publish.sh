@@ -2,8 +2,6 @@
 
 set -e
 
-hg pull -u
-hg revert --all --no-backup
 docker build -t madron/progettificio .
 docker tag madron/progettificio madron/progettificio:`hg identify --num -r .`
 echo
