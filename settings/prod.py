@@ -6,6 +6,10 @@ DEBUG = False
 if os.getenv('DEBUG', None) == 'True':
     DEBUG = True
 
+CMS_PERMISSION = False
+if os.getenv('CMS_PERMISSION', None) == 'True':
+    CMS_PERMISSION = True
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
