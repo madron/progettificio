@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
-from cms.sitemaps import CMSSitemap
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
+from wagtail.wagtailadmin import urls as wagtailadmin_urls
+from wagtail.wagtaildocs import urls as wagtaildocs_urls
+from wagtail.wagtailcore import urls as wagtail_urls
+# from search import views as search_views
 
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),  # NOQA
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
-        {'sitemaps': {'cmspages': CMSSitemap}}),
-    url(r'^select2/', include('django_select2.urls')),
-    url(r'^', include('cms.urls')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^cms/', include(wagtailadmin_urls)),
+    url(r'^documents/', include(wagtaildocs_urls)),
+    # url(r'^search/$', search_views.search, name='search'),
+    url(r'^', include(wagtail_urls)),
 ]
 
 if settings.DEBUG:

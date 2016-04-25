@@ -35,7 +35,21 @@ INSTALLED_APPS = (
     'progettificio',
     'association',
     'authentication',
-    'djangocms_admin_style',
+    # Wagtail
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+    'modelcluster',
+    'taggit',
+    # Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,41 +58,20 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
-    'cms',
-    'menus',
-    'sekizai',
-    'treebeard',
-    'djangocms_text_ckeditor',
-    'djangocms_style',
-    'djangocms_column',
-    'filer',
-    'easy_thumbnails',
-    'cmsplugin_filer_image',
-    'cmsplugin_filer_file',
-    'cmsplugin_filer_folder',
-    'cmsplugin_filer_teaser',
-    'cmsplugin_filer_utils',
-    'cmsplugin_filer_video',
-    'djangocms_googlemap',
-    'djangocms_inherit',
-    'djangocms_link',
-    'reversion',
+    # 'reversion',
 )
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
 SITE_ID = 1
@@ -99,9 +92,7 @@ TEMPLATES = [
                 'django.core.context_processors.media',
                 'django.core.context_processors.csrf',
                 'django.core.context_processors.tz',
-                'sekizai.context_processors.sekizai',
                 'django.core.context_processors.static',
-                'cms.context_processors.cms_settings'
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -147,54 +138,5 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 
-# django cms
-
-# CMS_LANGUAGES = {
-#     ## Customize this
-#     'default': {
-#         'public': True,
-#         'hide_untranslated': False,
-#         'redirect_on_fallback': True,
-#     },
-#     1: [
-#         {
-#             'public': True,
-#             'code': 'it',
-#             'hide_untranslated': False,
-#             'name': _('it'),
-#             'redirect_on_fallback': True,
-#         },
-#         {
-#             'public': True,
-#             'code': 'en',
-#             'hide_untranslated': False,
-#             'name': _('en'),
-#             'redirect_on_fallback': True,
-#         },
-#     ],
-# }
-
-CMS_TEMPLATES = (
-    ('page.html', 'Page'),
-    ('feature.html', 'Page with Feature')
-)
-
-CMS_PERMISSION = False
-
-CMS_PLACEHOLDER_CONF = {}
-
-MIGRATION_MODULES = {
-    'cmsplugin_filer_image': 'cmsplugin_filer_image.migrations_django',
-    'cmsplugin_filer_file': 'cmsplugin_filer_file.migrations_django',
-    'cmsplugin_filer_folder': 'cmsplugin_filer_folder.migrations_django',
-    'cmsplugin_filer_teaser': 'cmsplugin_filer_teaser.migrations_django',
-    'cmsplugin_filer_utils': 'cmsplugin_filer_utils.migrations_django',
-    'cmsplugin_filer_video': 'cmsplugin_filer_video.migrations_django',
-}
-
-THUMBNAIL_PROCESSORS = (
-    'easy_thumbnails.processors.colorspace',
-    'easy_thumbnails.processors.autocrop',
-    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
-    'easy_thumbnails.processors.filters'
-)
+# Wagtail
+WAGTAIL_SITE_NAME = 'Progettificio'
