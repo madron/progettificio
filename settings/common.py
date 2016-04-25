@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'association',
     'authentication',
     # Wagtail
+    'home',
+    'search',
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
