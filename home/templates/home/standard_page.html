@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+    {% if self.content %}
+        <div class="body-content">
+            {{ self.content|richtext }}
+        </div>
+    {% endif %}
+{% endblock %}

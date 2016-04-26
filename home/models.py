@@ -4,9 +4,19 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
 
-class HomePage(Page):
-    body = RichTextField(blank=True)
+class StandardPage(Page):
+    content = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname='full')
+        FieldPanel('content', classname='full'),
+    ]
+
+
+class HomePage(Page):
+    feature = RichTextField(blank=True)
+    content = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('feature', classname='full'),
+        FieldPanel('content', classname='full'),
     ]
