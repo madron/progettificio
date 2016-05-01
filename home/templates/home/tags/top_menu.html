@@ -2,43 +2,23 @@
 {% get_site_root as site_root %}
 
 {# Implementation of bootstrap theme dropdown menu - shows top level links and their children #}
-<div role="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            {# Link to home page #}
-            <a href="{% pageurl site_root %}" class="navbar-brand" title="{{ site_name }} - {{ site_root.title }}" data-placement="bottom">
-                <i class="glyphicon glyphicon-home"></i> Progettificio
-            </a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                {% for menuitem in menuitems %}
-                    <li class="{% if menuitem.show_dropdown %}dropdown{% endif %}{% if menuitem.active %} active{% endif %}">
-                        {% if menuitem.show_dropdown %}
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ menuitem.title }} <b class="caret"></b></a>
-                            {% top_menu_children parent=menuitem %}
-                        {% else %}
-                            <a href="{% pageurl menuitem %}">{{ menuitem.title }}</a>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
-            <form class="navbar-form navbar-right" role="search" action="{% url 'search' %}" method="get">
-                <div class="input-group">
-                    <input type="text" name="query" class="form-control" placeholder="Search…" value="{{ search_query }}" />
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+    {# Link to home page #}
+    <a class="navbar-brand" href="{% pageurl site_root %}" title="{{ site_root.title }}">Progettificio</a>
+    <ul class="nav navbar-nav">
+    {% for menuitem in menuitems %}
+        <li class="nav-item{% if menuitem.show_dropdown %} dropdown{% endif %}{% if menuitem.active %} active{% endif %}">
+            {% if menuitem.show_dropdown %}
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">{{ menuitem.title }}</a>
+                {% top_menu_children parent=menuitem %}
+            {% else %}
+                <a class="nav-link" href="{% pageurl menuitem %}">{{ menuitem.title }}{% if menuitem.active %}<span class="sr-only">(current)</span>{% endif %}</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    <form class="form-inline navbar-form pull-xs-right" role="search" action="{% url 'search' %}" method="get">
+        <input type="text" class="form-control" placeholder="Search…" value="{{ search_query }}">
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
+</nav>

@@ -42,6 +42,8 @@ def top_menu(context, parent, calling_page=None):
 def top_menu_children(context, parent):
     menuitems_children = parent.get_children()
     menuitems_children = menuitems_children.live().in_menu()
+    for child in menuitems_children:
+        child.active = (context.request.path.startswith(child.url) if context.request.path else False)
     return {
         'parent': parent,
         'menuitems_children': menuitems_children,
