@@ -21,7 +21,6 @@
             </li>
             {% endfor %}
         </ul>
-
         {% if search_results.has_previous %}
             <a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.previous_page_number }}">Previous</a>
         {% endif %}

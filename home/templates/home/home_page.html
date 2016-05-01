@@ -2,8 +2,19 @@
 
 {% load wagtailcore_tags %}
 
-{% block body_class %}template-homepage{% endblock %}
+{% block heading %}{% endblock heading %}
 
 {% block content %}
-    {{ page.body|richtext }}
+    <section class="jumbotron text-xs-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">{{ self.title }}</h1>
+            {{ self.feature|richtext }}
+        </div>
+    </section>
+
+    {% if self.content %}
+        <div class="body-content">
+            {{ self.content|richtext }}
+        </div>
+    {% endif %}
 {% endblock %}
