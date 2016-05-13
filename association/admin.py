@@ -14,11 +14,17 @@ class MemberAdmin(admin.ModelAdmin):
     def get_urls(self):
         info = dict(app_label=self.model._meta.app_label, model_name=self.model._meta.model_name)
         request_name = '{app_label}_{model_name}_request'.format(**info)
+        request_pdf_name = '{app_label}_{model_name}_request_pdf'.format(**info)
         urls = [
             url(
                 r'^(?P<pk>[0-9]+)/request/$',
-                self.admin_site.admin_view(views.MembershipRequestModule.as_view()),
+                self.admin_site.admin_view(views.MembershipRequestModuleView.as_view()),
                 name=request_name
+            ),
+            url(
+                r'^(?P<pk>[0-9]+)/request/pdf/$',
+                self.admin_site.admin_view(views.MembershipRequestModulePdfView.as_view()),
+                name=request_pdf_name
             ),
         ]
         return urls + super(MemberAdmin, self).get_urls()
