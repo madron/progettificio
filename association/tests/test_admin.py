@@ -46,3 +46,9 @@ class UserAdminTest(TestCase):
         url = reverse('admin:association_member_delete', args=(obj.pk,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+
+    def test_request(self):
+        obj = factories.MemberFactory()
+        url = reverse('admin:association_member_request', args=(obj.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
