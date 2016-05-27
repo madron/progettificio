@@ -3,8 +3,11 @@
         "model": "association.member",
         "pk": 1,
         "fields": {
-            "surname": "Black",
-            "name": "Joe"
+            "number": 1,
+            "first_name": "Joe",
+            "last_name": "Black",
+            "date_of_birth": "1990-01-01",
+            "email": "joe.black@example.com"
         }
     }
 ]

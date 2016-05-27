@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-22 19:30+0200\n"
+"POT-Creation-Date: 2016-05-27 19:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,22 +18,74 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: admin.py:17
+msgid "Residence"
+msgstr "Residenza"
+
+#: admin.py:18
+msgid "Contacts"
+msgstr "Contatti"
+
+#: admin.py:19
+msgid "Request"
+msgstr "Richiesta"
+
 #: apps.py:7
 msgid "Association"
 msgstr "Associazione"
 
-#: models.py:6
-msgid "surname"
-msgstr "cognome"
+#: models.py:10
+msgid "number"
+msgstr "numero"
 
-#: models.py:7
-msgid "name"
+#: models.py:11
+msgid "first name"
 msgstr "nome"
 
-#: models.py:10
+#: models.py:12
+msgid "last name"
+msgstr "cognome"
+
+#: models.py:14
+msgid "birth place"
+msgstr "luogo di nascita"
+
+#: models.py:15
+msgid "birth date"
+msgstr "data di nascita"
+
+#: models.py:17
+msgid "city"
+msgstr "città"
+
+#: models.py:18
+msgid "address"
+msgstr "indirizzo"
+
+#: models.py:19
+msgid "zip code"
+msgstr "cap"
+
+#: models.py:21
+msgid "email"
+msgstr "email"
+
+#: models.py:22
+msgid "phone number"
+msgstr "telefono"
+
+#: models.py:24
+msgid "request place"
+msgstr "luogo richiesta"
+
+#: models.py:25
+msgid "request date"
+msgstr "data richiesta"
+
+#: models.py:28
 msgid "member"
 msgstr "socio"
 
-#: models.py:11
+#: models.py:29
 msgid "members"
 msgstr "soci"

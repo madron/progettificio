@@ -1,15 +1,24 @@
 from django.conf.urls import url
 from django.contrib import admin
+from django.utils.translation import ugettext as _
+from . import forms
 from . import models
 from . import views
 
 
 class MemberAdmin(admin.ModelAdmin):
-    list_display = ('surname', 'name')
+    list_display = ('first_name', 'last_name')
+    form = forms.MemberForm
     fieldsets = (
-        (None, {'fields': ('surname', 'name')}),
+        (None, {'fields': (
+            ('first_name', 'last_name', 'number'),
+            ('place_of_birth', 'date_of_birth'),
+        )}),
+        (_('Residence'), {'fields': (('city', 'address', 'zip_code'),)}),
+        (_('Contacts'), {'fields': (('email', 'phone_number'),)}),
+        (_('Request'), {'fields': (('request_place', 'request_date'),)}),
     )
-    search_fields = ('surname', 'name')
+    search_fields = ('first_name', 'last_name')
 
     def get_urls(self):
         info = dict(app_label=self.model._meta.app_label, model_name=self.model._meta.model_name)

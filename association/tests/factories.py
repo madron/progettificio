@@ -6,5 +6,6 @@ class MemberFactory(DjangoModelFactory):
     class Meta:
         model = models.Member
 
-    name = 'Joe'
-    surname = 'Black'
+    first_name = 'Joe'
+    last_name = 'Black'
+    date_of_birth = '1990-01-01'
