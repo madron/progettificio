@@ -1,1 +1,15 @@
-<p>Membership request module</p>
+{% extends "association/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'association/css/print.css' %}" />
+{% endblock %}
+
+{% block body %}
+<h1>Association</h1>
+
+<h2>Membership request module</h2>
+
+<p>First name: <em>{{ object.first_name }}</em></p>
+<p>Last name: <em>{{ object.last_name }}</em></p>
+{% endblock body %}
