@@ -23,3 +23,5 @@ DATABASES = {
 
 MEDIA_ROOT = '/media'
 STATIC_ROOT = '/static'
+
+LANGUAGE_CODE = 'it'

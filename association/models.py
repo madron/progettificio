@@ -3,7 +3,9 @@ from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext as _
 
-DEFAULT_PLACE = getattr(settings, 'ASSOCIATION_DEFAULT_PLACE', '')
+
+def default_request_place():
+    return getattr(settings, 'ASSOCIATION_DEFAULT_PLACE', '')
 
 
 class Member(models.Model):
@@ -20,7 +22,7 @@ class Member(models.Model):
     email = models.EmailField(_('email'), blank=True)
     phone_number = models.CharField(_('phone number'), max_length=50, blank=True)
     # Request
-    request_place = models.CharField(_('request place'), max_length=50, default=DEFAULT_PLACE)
+    request_place = models.CharField(_('request place'), max_length=50, default=default_request_place)
     request_date = models.DateField(_('request date'), null=True, default=date.today)
 
     class Meta:

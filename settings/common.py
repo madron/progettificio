@@ -118,7 +118,7 @@ DATABASES = {}
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'it'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -142,3 +142,6 @@ MEDIA_URL = '/media/'
 
 # Wagtail
 WAGTAIL_SITE_NAME = 'Progettificio'
+
+# Progettificio
+ASSOCIATION_DEFAULT_PLACE = 'Porto Mantovano'
