@@ -8,6 +8,12 @@ def default_request_place():
     return getattr(settings, 'ASSOCIATION_DEFAULT_PLACE', '')
 
 
+class MemberManager(models.Manager):
+    def get_queryset(self):
+        qs = super(MemberManager, self).get_queryset()
+        return qs.filter(number__isnull=False)
+
+
 class Member(models.Model):
     number = models.PositiveIntegerField(_('number'), null=True, unique=True, blank=True)
     first_name = models.CharField(_('first name'), max_length=50, default='')
@@ -25,6 +31,8 @@ class Member(models.Model):
     request_place = models.CharField(_('request place'), max_length=50, default=default_request_place)
     request_date = models.DateField(_('request date'), null=True, default=date.today)
 
+    objects = MemberManager()
+
     class Meta:
         verbose_name = _('member')
         verbose_name_plural = _('members')
@@ -32,3 +40,18 @@ class Member(models.Model):
 
     def __str__(self):
         return '{first_name} {last_name}'.format(first_name=self.first_name, last_name=self.last_name)
+
+
+class MemberProposalManager(models.Manager):
+    def get_queryset(self):
+        qs = super(MemberProposalManager, self).get_queryset()
+        return qs.filter(number__isnull=True)
+
+
+class MemberProposal(Member):
+    class Meta:
+        proxy = True
+        verbose_name = _('member proposal')
+        verbose_name_plural = _('member proposals')
+
+    objects = MemberProposalManager()

@@ -39,4 +39,9 @@ class MemberAdmin(admin.ModelAdmin):
         return urls + super(MemberAdmin, self).get_urls()
 
 
+class MemberProposalAdmin(MemberAdmin):
+    pass
+
+
 admin.site.register(models.Member, MemberAdmin)
+admin.site.register(models.MemberProposal, MemberProposalAdmin)
