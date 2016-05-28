@@ -32,7 +32,7 @@ class MemberCommonAdmin(admin.ModelAdmin):
 
 
 class MemberAdmin(MemberCommonAdmin):
-    list_display = ('number', 'first_name', 'last_name', 'approval_date')
+    list_display = ('number', 'first_name', 'last_name', 'email', 'phone_number', 'approval_date')
     date_hierarchy = 'approval_date'
     list_filter = ('approval_date',)
     fieldsets = (
