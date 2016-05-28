@@ -7,26 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-28 08:51+0200\n"
-"PO-Revision-Date: 2016-05-28 08:59+0200\n"
+"POT-Creation-Date: 2016-05-28 13:20+0200\n"
+"PO-Revision-Date: 2016-05-28 13:22+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.7\n"
 
-#: admin.py:17
+#: admin.py:13
 msgid "Residence"
 msgstr "Residenza"
 
-#: admin.py:18
+#: admin.py:14
 msgid "Contacts"
 msgstr "Contatti"
 
-#: admin.py:19
+#: admin.py:15 admin.py:23
 msgid "Request"
 msgstr "Richiesta"
 
@@ -34,58 +34,78 @@ msgstr "Richiesta"
 msgid "Association"
 msgstr "Associazione"
 
-#: models.py:12
+#: models.py:18
 msgid "number"
 msgstr "numero"
 
-#: models.py:13
+#: models.py:19
 msgid "first name"
 msgstr "nome"
 
-#: models.py:14
+#: models.py:20
 msgid "last name"
 msgstr "cognome"
 
-#: models.py:15
+#: models.py:21
 msgid "birth place"
 msgstr "luogo di nascita"
 
-#: models.py:16
+#: models.py:22
 msgid "birth date"
 msgstr "data di nascita"
 
-#: models.py:18
+#: models.py:24
 msgid "city"
 msgstr "città"
 
-#: models.py:19
+#: models.py:25
 msgid "address"
 msgstr "indirizzo"
 
-#: models.py:20
+#: models.py:26
 msgid "zip code"
 msgstr "cap"
 
-#: models.py:22
+#: models.py:28
 msgid "email"
 msgstr "email"
 
-#: models.py:23
+#: models.py:29
 msgid "phone number"
 msgstr "telefono"
 
-#: models.py:25
+#: models.py:31
 msgid "request place"
 msgstr "luogo richiesta"
 
-#: models.py:26
+#: models.py:32
 msgid "request date"
 msgstr "data richiesta"
 
-#: models.py:29
+#: models.py:33
+msgid "sign"
+msgstr "firma"
+
+#: models.py:34
+msgid "approval date"
+msgstr "data approvazione"
+
+#: models.py:39
 msgid "member"
 msgstr "socio"
 
-#: models.py:30
+#: models.py:40
 msgid "members"
 msgstr "soci"
+
+#: models.py:56
+msgid "provisional member"
+msgstr "socio provvisorio"
+
+#: models.py:57
+msgid "provisional members"
+msgstr "soci provvisori"
+
+#: templates/admin/association/provisionalmember/change_form.html:9
+msgid "Request module"
+msgstr "Modulo di richiesta"

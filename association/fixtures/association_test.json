@@ -9,7 +9,21 @@
             "date_of_birth": "1990-01-01",
             "email": "joe.black@example.com",
             "request_place": "London",
-            "request_date": "2016-01-01"
+            "request_date": "2016-01-01",
+            "approval_date": "2016-01-30"
+        }
+    },
+    {
+        "model": "association.member",
+        "pk": 2,
+        "fields": {
+            "number": null,
+            "first_name": "Mike",
+            "last_name": "Green",
+            "date_of_birth": "1995-10-01",
+            "email": "mike.green@example.com",
+            "request_place": "London",
+            "request_date": "2016-04-10"
         }
     }
 ]

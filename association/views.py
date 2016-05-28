@@ -5,7 +5,7 @@ from . import models
 
 
 class MembershipRequestModuleView(DetailView):
-    model = models.Member
+    model = models.ProvisionalMember
     template_name = 'association/membership_request_module.html'
 
 

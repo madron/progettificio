@@ -1,0 +1,12 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block object-tools-items %}
+{{ block.super }}
+<li>
+    {% if original.pk %}
+        {% url 'admin:association_provisionalmember_request' original.pk|admin_urlquote as request_url %}
+        <a href="{{ request_url }}" class="historylink">{% trans "Request module" %}</a>
+    {% endif %}
+</li>
+{% endblock %}
