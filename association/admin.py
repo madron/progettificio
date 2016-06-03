@@ -73,6 +73,8 @@ class ProvisionalMemberAdmin(MemberCommonAdmin):
         info = dict(app_label=self.model._meta.app_label, model_name=self.model._meta.model_name)
         request_name = '{app_label}_{model_name}_request'.format(**info)
         request_pdf_name = '{app_label}_{model_name}_request_pdf'.format(**info)
+        empty_request_name = '{app_label}_{model_name}_empty_request'.format(**info)
+        empty_request_pdf_name = '{app_label}_{model_name}_empty_request_pdf'.format(**info)
         urls = [
             url(
                 r'^(?P<pk>[0-9]+)/request/$',
@@ -83,6 +85,16 @@ class ProvisionalMemberAdmin(MemberCommonAdmin):
                 r'^(?P<pk>[0-9]+)/request/pdf/$',
                 self.admin_site.admin_view(views.MembershipRequestModulePdfView.as_view()),
                 name=request_pdf_name
+            ),
+            url(
+                r'^request/$',
+                self.admin_site.admin_view(views.EmptyMembershipRequestModuleView.as_view()),
+                name=empty_request_name
+            ),
+            url(
+                r'^request/pdf/$',
+                self.admin_site.admin_view(views.EmptyMembershipRequestModulePdfView.as_view()),
+                name=empty_request_pdf_name
             ),
         ]
         return urls + super(ProvisionalMemberAdmin, self).get_urls()

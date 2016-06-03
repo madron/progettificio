@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from authentication.tests.factories import UserFactory
 from . import factories
 
@@ -57,6 +57,8 @@ class ProvisionalMemberAdminTest(TestCase):
     def test_list(self):
         response = self.client.get(self.list)
         self.assertEqual(response.status_code, 200)
+        url = reverse('admin:association_provisionalmember_empty_request_pdf')
+        self.assertContains(response, 'href="{0}"'.format(url))
 
     def test_search(self):
         data = dict(q='text')
@@ -88,9 +90,23 @@ class ProvisionalMemberAdminTest(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
-    # def test_request_pdf(self):
-    #     obj = factories.ProvisionalMemberFactory(id=1, first_name='Joe', last_name='Simon & Simon')
-    #     url = reverse('admin:association_provisionalmember_request_pdf', args=(obj.pk,))
-    #     response = self.client.get(url)
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertEqual(response['Content-Disposition'], 'attachment; filename="request_joe_simon_simon.pdf"')
+    @override_settings(PDF_INCLUDE=False)
+    def test_request_pdf(self):
+        obj = factories.ProvisionalMemberFactory(id=1, first_name='Joe', last_name='Simon & Simon')
+        url = reverse('admin:association_provisionalmember_request_pdf', args=(obj.pk,))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="request_joe_simon_simon.pdf"')
+
+    def test_empty_request(self):
+        obj = factories.ProvisionalMemberFactory()
+        url = reverse('admin:association_provisionalmember_empty_request')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    @override_settings(PDF_INCLUDE=False)
+    def test_empty_request_pdf(self):
+        url = reverse('admin:association_provisionalmember_empty_request_pdf')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Disposition'], 'attachment; filename="request.pdf"')

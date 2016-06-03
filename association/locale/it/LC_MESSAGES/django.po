@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-03 18:57+0200\n"
-"PO-Revision-Date: 2016-06-03 18:58+0200\n"
+"POT-Creation-Date: 2016-06-03 20:26+0200\n"
+"PO-Revision-Date: 2016-06-03 20:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -111,10 +111,11 @@ msgid "provisional members"
 msgstr "soci provvisori"
 
 #: templates/admin/association/provisionalmember/change_form.html:8
+#: templates/admin/association/provisionalmember/change_list.html:7
 msgid "Request module"
 msgstr "Modulo di domanda"
 
-#: utils.py:10
+#: utils.py:6
 msgid "request"
 msgstr "domanda"
 

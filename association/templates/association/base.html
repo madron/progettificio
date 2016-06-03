@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     {% block base_css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'association/css/print.css' %}" />
+        {% if PDF_INCLUDE %}
+            <link rel="stylesheet" type="text/css" href="{% static 'association/css/print.css' %}" />
+        {% endif %}
     {% endblock base_css %}
     {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}

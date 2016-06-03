@@ -4,7 +4,12 @@
 {% block body %}
 
 <div class="container">
-    <h1 style="display: inline-block;"><img src="{% static 'association/img/logo.svg' %}">Progettificio</h1>
+    <h1 style="display: inline-block;">
+        {% if PDF_INCLUDE %}
+            <img src="{% static 'association/img/logo.svg' %}">
+        {% endif %}
+        Progettificio
+    </h1>
     {% if object.pk %} <span style="float: right;">Domanda n. {{ object.pk }}</span> {% endif %}
     <h2>Domanda di ammissione all'associazione</h2>
 
