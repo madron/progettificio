@@ -4,7 +4,7 @@
 {% block body %}
 
 <div class="container">
-    <h1 style="display: inline-block;"><img src="{% static 'progettificio/img/logo.svg' %}">Progettificio</h1>
+    <h1 style="display: inline-block;"><img src="{% static 'association/img/logo.svg' %}">Progettificio</h1>
     {% if object.pk %} <span style="float: right;">Domanda n. {{ object.pk }}</span> {% endif %}
     <h2>Domanda di ammissione all'associazione</h2>
 
@@ -44,7 +44,7 @@
 {% include "progettificio/place_date_sign.html" %}
 
     <div class="row" style="padding-top: 2rem;">
-            Ricevuta l'informativa sullutilizzo dei miei dati personali
+            Ricevuta l'informativa sull'utilizzo dei miei dati personali
             ai sensi dell'art. 13 del Decreto Legislativo n.196/2003
             consento al loro trattamento nella misura necessaria
             per il perseguimento degli scopi statutari.
