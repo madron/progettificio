@@ -11,6 +11,10 @@ MEMBER_MAIN_FIELDSET = (None, {'fields': [
     ('place_of_birth', 'date_of_birth'),
 ]})
 MEMBER_RESIDENCE_FIELDSET = (_('Residence'), {'fields': (('city', 'address', 'zip_code'),)})
+MEMBER_RESIDENCE_FIELDSET = (_('Residence'), {'fields': (
+    ('address', 'city'),
+    ('province', 'zip_code'),
+)})
 MEMBER_CONTACTS_FIELDSET = (_('Contacts'), {'fields': (('email', 'phone_number'),)})
 MEMBER_REQUEST_FIELDSET = (_('Request'), {'fields': (('request_place', 'request_date', 'approval_date'),)})
 # ProvisionalMemberAdmin fieldsets
