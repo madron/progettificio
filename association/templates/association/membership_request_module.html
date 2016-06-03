@@ -2,10 +2,21 @@
 {% load static %}
 
 {% block body %}
-<h1>Association</h1>
 
-<h2>Membership request module</h2>
+<div>
+    <h1 style="display: inline-block;">
+        {% if PDF_INCLUDE %}
+            <img src="{% static 'association/img/logo.svg' %}">
+        {% endif %}
+        Association
+    </h1>
+    {% if object.pk %} <span style="float: right;">Request: {{ object.pk }}</span> {% endif %}
+    <h2>Membership request module</h2>
 
-<p>First name: <em>{{ object.first_name }}</em></p>
-<p>Last name: <em>{{ object.last_name }}</em></p>
+    <div>
+            First name: <div class="field-box" style="width:10rem">{{ object.first_name }}</div>
+            Last name: <div class="field-box" style="width:10rem">{{ object.last_name }}</div>
+    </div>
+</div>
+
 {% endblock body %}
