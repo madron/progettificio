@@ -73,7 +73,7 @@ class ProvisionalMemberAdminTest(TestCase):
         url = reverse('admin:association_provisionalmember_change', args=(obj.pk,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        url = reverse('admin:association_provisionalmember_request', args=(obj.pk,))
+        url = reverse('admin:association_provisionalmember_request_pdf', args=(obj.pk,))
         self.assertContains(response, 'href="{0}"'.format(url))
 
     def test_delete(self):
