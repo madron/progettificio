@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-28 13:20+0200\n"
-"PO-Revision-Date: 2016-05-28 13:22+0200\n"
+"POT-Creation-Date: 2016-06-03 17:03+0200\n"
+"PO-Revision-Date: 2016-06-03 17:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7\n"
 
-#: admin.py:13
+#: admin.py:13 admin.py:14
 msgid "Residence"
 msgstr "Residenza"
 
-#: admin.py:14
+#: admin.py:18
 msgid "Contacts"
 msgstr "Contatti"
 
-#: admin.py:15 admin.py:23
+#: admin.py:19 admin.py:27
 msgid "Request"
 msgstr "Richiesta"
 
@@ -55,57 +55,65 @@ msgid "birth date"
 msgstr "data di nascita"
 
 #: models.py:24
-msgid "city"
-msgstr "città"
-
-#: models.py:25
 msgid "address"
 msgstr "indirizzo"
 
+#: models.py:25
+msgid "city"
+msgstr "città"
+
 #: models.py:26
+msgid "province"
+msgstr "provincia"
+
+#: models.py:27
 msgid "zip code"
 msgstr "cap"
 
-#: models.py:28
+#: models.py:29
 msgid "email"
 msgstr "email"
 
-#: models.py:29
+#: models.py:30
 msgid "phone number"
 msgstr "telefono"
 
-#: models.py:31
+#: models.py:32
 msgid "request place"
 msgstr "luogo richiesta"
 
-#: models.py:32
+#: models.py:33
 msgid "request date"
 msgstr "data richiesta"
 
-#: models.py:33
+#: models.py:34
 msgid "sign"
 msgstr "firma"
 
-#: models.py:34
+#: models.py:35
 msgid "approval date"
 msgstr "data approvazione"
 
-#: models.py:39
+#: models.py:40
 msgid "member"
 msgstr "socio"
 
-#: models.py:40
+#: models.py:41
 msgid "members"
 msgstr "soci"
 
-#: models.py:56
+#: models.py:57
 msgid "provisional member"
 msgstr "socio provvisorio"
 
-#: models.py:57
+#: models.py:58
 msgid "provisional members"
 msgstr "soci provvisori"
 
 #: templates/admin/association/provisionalmember/change_form.html:9
 msgid "Request module"
 msgstr "Modulo di richiesta"
+
+#: templates/admin/association/provisionalmember/change_form.html:10
+msgid "Request module pdf"
+msgstr "Modulo di richiesta pdf"
