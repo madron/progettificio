@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-03 17:03+0200\n"
-"PO-Revision-Date: 2016-06-03 18:45+0200\n"
+"POT-Creation-Date: 2016-06-03 18:57+0200\n"
+"PO-Revision-Date: 2016-06-03 18:58+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
@@ -28,7 +28,7 @@ msgstr "Contatti"
 
 #: admin.py:19 admin.py:27
 msgid "Request"
-msgstr "Richiesta"
+msgstr "Domanda"
 
 #: apps.py:7
 msgid "Association"
@@ -80,11 +80,11 @@ msgstr "telefono"
 
 #: models.py:32
 msgid "request place"
-msgstr "luogo richiesta"
+msgstr "luogo domanda"
 
 #: models.py:33
 msgid "request date"
-msgstr "data richiesta"
+msgstr "data domanda"
 
 #: models.py:34
 msgid "sign"
@@ -110,10 +110,13 @@ msgstr "socio provvisorio"
 msgid "provisional members"
 msgstr "soci provvisori"
 
-#: templates/admin/association/provisionalmember/change_form.html:9
+#: templates/admin/association/provisionalmember/change_form.html:8
 msgid "Request module"
 msgstr "Modulo di domanda"
 
-#: templates/admin/association/provisionalmember/change_form.html:10
-msgid "Request module pdf"
-msgstr "Modulo di domanda pdf"
+#: utils.py:10
+msgid "request"
+msgstr "domanda"
+
+#~ msgid "Request module pdf"
+#~ msgstr "Modulo di domanda pdf"
