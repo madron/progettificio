@@ -4,5 +4,5 @@
 {% block object-tools-items %}
 {{ block.super }}
     {% url 'admin:association_provisionalmember_empty_request_pdf' as request_pdf_url %}
-    <li><a href="{{ request_pdf_url }}" class="historylink">{% trans "Request module" %}</a></li>
+    <li><a href="{{ request_pdf_url }}" class="historylink">{% trans "Empty request module" %}</a></li>
 {% endblock %}
