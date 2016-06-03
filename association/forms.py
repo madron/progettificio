@@ -7,5 +7,6 @@ class MemberForm(forms.ModelForm):
         model = models.Member
         fields = ('__all__')
         widgets = dict(
+            province=forms.TextInput(attrs={'size': '5'}),
             zip_code=forms.TextInput(attrs={'size': '8'}),
         )

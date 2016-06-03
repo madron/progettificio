@@ -21,8 +21,9 @@ class Member(models.Model):
     place_of_birth = models.CharField(_('birth place'), max_length=50, default='')
     date_of_birth = models.DateField(_('birth date'))
     # Residence
-    city = models.CharField(_('city'), max_length=50, default='', db_index=True)
     address = models.CharField(_('address'), max_length=50, default='', db_index=True)
+    city = models.CharField(_('city'), max_length=50, default='', db_index=True)
+    province = models.CharField(_('province'), max_length=50, default='', db_index=True)
     zip_code = models.CharField(_('zip code'), max_length=10, default='')
     # Contacts
     email = models.EmailField(_('email'), blank=True, db_index=True)

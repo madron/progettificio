@@ -10,8 +10,10 @@
             "date_of_birth": "1990-01-01",
             "address": "Trafalgar Square",
             "city": "London",
+            "province": "WC",
             "zip_code": "WC2",
             "email": "joe.black@example.com",
+            "phone_number": "555-123456",
             "request_place": "London",
             "request_date": "2016-01-01",
             "approval_date": "2016-01-30"
@@ -28,8 +30,10 @@
             "date_of_birth": "1995-10-01",
             "address": "Trafalgar Square",
             "city": "London",
+            "province": "WC",
             "zip_code": "WC2",
             "email": "mike.green@example.com",
+            "phone_number": "555-654321",
             "request_place": "London",
             "request_date": "2016-04-10"
         }
