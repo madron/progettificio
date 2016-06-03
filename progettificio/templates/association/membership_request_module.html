@@ -1,0 +1,61 @@
+{% extends "association/base.html" %}
+{% load static %}
+
+{% block body %}
+
+<div class="container">
+    <h1 style="display: inline-block;"><img src="{% static 'progettificio/img/logo.svg' %}">Progettificio</h1>
+    {% if object.pk %} <span style="float: right;">Domanda n. {{ object.pk }}</span> {% endif %}
+    <h2>Domanda di ammissione all'associazione</h2>
+
+    <div class="row">
+            Il sottoscritto/a <div class="field-box" style="width:25rem">{{ object.first_name }} {{ object.last_name }}</div>
+    </div>
+    <div class="row">
+            nato/a <div class="field-box" style="width:15rem">{{ object.place_of_birth }}</div>
+            il <div class="field-box" style="width:8rem">{{ object.date_of_birth|date:"SHORT_DATE_FORMAT" }}</div>
+    </div>
+    <div class="row">
+            residente in <div class="field-box" style="width:25rem">{{ object.address }}</div>
+    </div>
+    <div class="row">
+            a <div class="field-box" style="width:18rem">{{ object.city }}</div>
+            (<div class="field-box" style="width:2rem">{{ object.province }}</div>)
+            CAP <div class="field-box" style="width:5rem">{{ object.zip_code }}</div>
+    </div>
+    <div class="row">
+            E-mail <div class="field-box" style="width:15rem">{{ object.email }}</div>
+            Telefono <div class="field-box" style="width:8rem">{{ object.phone_number }}</div>
+    </div>
+
+    <h3 style="text-align: center">chiede</h3>
+
+    <div class="row">
+            di essere ammesso quale socio dell'associazione <b>Progettificio</b>, per lo svolgimento e il raggiungimento
+            degli scopi primari della stessa,
+            attenendosi allo statuto sociale ed alle deliberazioni degli organi sociali.
+            Il sottoscritto si impegna, altresì, al pagamento della quota associativa annuale.
+    </div>
+    <div class="row">
+            Il sottoscritto dichiara di aver preso nota dello Statuto e del Regolamento
+            e di accettarli integralmente.
+    </div>
+
+{% include "progettificio/place_date_sign.html" %}
+
+    <div class="row" style="padding-top: 2rem;">
+            Ricevuta l'informativa sullutilizzo dei miei dati personali
+            ai sensi dell'art. 13 del Decreto Legislativo n.196/2003
+            consento al loro trattamento nella misura necessaria
+            per il perseguimento degli scopi statutari.
+            Consento anche che i dati riguardanti l'iscrizione siano comunicati
+            agli enti con cui l'Associazione collabora
+            e da questi trattati nella misura necessaria all'adempimento di obblighi
+            previsti dalla legge e dalle norme statutarie.
+    </div>
+
+{% include "progettificio/place_date_sign.html" %}
+
+</div> <!-- /container -->
+
+{% endblock body %}
