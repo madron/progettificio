@@ -31,7 +31,7 @@ class Member(models.Model):
     # Request
     request_place = models.CharField(_('request place'), max_length=50, default=default_request_place)
     request_date = models.DateField(_('request date'), null=True, default=date.today)
-    sign = models.BooleanField(_('sign'), default=False, db_index=True)
+    verified = models.BooleanField(_('verified'), default=False, db_index=True)
     approval_date = models.DateField(_('approval date'), null=True, blank=True, db_index=True)
 
     objects = MemberManager()

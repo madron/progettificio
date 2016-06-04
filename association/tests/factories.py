@@ -14,7 +14,7 @@ class MemberFactory(DjangoModelFactory):
     request_place = 'London'
     request_date = '2016-01-01'
     approval_date = '2016-01-30'
-    sign = True
+    verified = True
 
 
 class ProvisionalMemberFactory(MemberFactory):
@@ -23,4 +23,4 @@ class ProvisionalMemberFactory(MemberFactory):
 
     number = None
     approval_date = None
-    sign = False
+    verified = False

@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('phone_number', models.CharField(blank=True, db_index=True, max_length=50, verbose_name='phone number')),
                 ('request_place', models.CharField(default=association.models.default_request_place, max_length=50, verbose_name='request place')),
                 ('request_date', models.DateField(default=datetime.date.today, null=True, verbose_name='request date')),
-                ('sign', models.BooleanField(db_index=True, default=False, verbose_name='sign')),
+                ('verified', models.BooleanField(db_index=True, default=False, verbose_name='verified')),
                 ('approval_date', models.DateField(blank=True, db_index=True, null=True, verbose_name='approval date')),
             ],
             options={

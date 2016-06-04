@@ -24,7 +24,7 @@ PROVISIONAL_MEMBER_MAIN_FIELDSET = (None, {'fields': [
 ]})
 PROVISIONAL_MEMBER_RESIDENCE_FIELDSET = MEMBER_RESIDENCE_FIELDSET
 PROVISIONAL_MEMBER_CONTACTS_FIELDSET = MEMBER_CONTACTS_FIELDSET
-PROVISIONAL_MEMBER_REQUEST_FIELDSET = (_('Request'), {'fields': (('request_place', 'request_date', 'sign'),)})
+PROVISIONAL_MEMBER_REQUEST_FIELDSET = (_('Request'), {'fields': (('request_place', 'request_date', 'verified'),)})
 
 
 class MemberCommonAdmin(admin.ModelAdmin):
@@ -59,8 +59,8 @@ class MemberAdmin(MemberCommonAdmin):
 
 
 class ProvisionalMemberAdmin(MemberCommonAdmin):
-    list_display = ('first_name', 'last_name', 'sign')
-    list_filter = ('sign',)
+    list_display = ('first_name', 'last_name', 'verified')
+    list_filter = ('verified',)
     exclude = ('number',)
     fieldsets = (
         PROVISIONAL_MEMBER_MAIN_FIELDSET,
