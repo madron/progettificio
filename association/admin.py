@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from django.contrib import admin
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.utils.translation import ugettext as _
 from . import forms
 from . import models
@@ -68,6 +70,7 @@ class ProvisionalMemberAdmin(MemberCommonAdmin):
         PROVISIONAL_MEMBER_CONTACTS_FIELDSET,
         PROVISIONAL_MEMBER_REQUEST_FIELDSET,
     )
+    actions = ['approve_selected']
 
     def get_urls(self):
         info = dict(app_label=self.model._meta.app_label, model_name=self.model._meta.model_name)
@@ -75,7 +78,13 @@ class ProvisionalMemberAdmin(MemberCommonAdmin):
         request_pdf_name = '{app_label}_{model_name}_request_pdf'.format(**info)
         empty_request_name = '{app_label}_{model_name}_empty_request'.format(**info)
         empty_request_pdf_name = '{app_label}_{model_name}_empty_request_pdf'.format(**info)
+        self.approve_url_name = '{app_label}_{model_name}_approve'.format(**info)
         urls = [
+            url(
+                r'^approve/(?P<selected>[0-9]+(-[0-9]+)*)/$',
+                self.admin_site.admin_view(views.ApproveProvisionalMembersView.as_view()),
+                name=self.approve_url_name
+            ),
             url(
                 r'^(?P<pk>[0-9]+)/request/$',
                 self.admin_site.admin_view(views.MembershipRequestModuleView.as_view()),
@@ -98,6 +107,12 @@ class ProvisionalMemberAdmin(MemberCommonAdmin):
             ),
         ]
         return urls + super(ProvisionalMemberAdmin, self).get_urls()
+
+    def approve_selected(self, request, queryset):
+        queryset = queryset.order_by('pk')
+        selected = '-'.join([str(x) for x in queryset.values_list('pk', flat=True)])
+        url_name = '{0}:{1}'.format(self.admin_site.name, self.approve_url_name)
+        return HttpResponseRedirect(reverse(url_name, kwargs=dict(selected=selected)))
 
 
 admin.site.register(models.Member, MemberAdmin)

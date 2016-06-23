@@ -1,0 +1,68 @@
+{% extends "admin/change_form.html" %}
+{% load i18n l10n admin_urls admin_static %}
+
+{% block extrahead %}
+{{ block.super }}
+{{ form.media }}
+{% endblock %}
+
+{% block bodyclass %}{{ block.super }} app-{{ opts.app_label }} model-{{ opts.model_name }} approve-confirmation approve-selected-confirmation{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+&rsaquo; <a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>
+&rsaquo; {% trans 'Approve' %}
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% if unverified %}
+
+    <ul class="messagelist">
+        <li class="error">{% blocktrans %}The following provisional members needs to be verified before approval:{% endblocktrans %}</li>
+    </ul>
+    <ul>
+        {% for member in unverified %}
+            <li><a href="{% url opts|admin_urlname:'change' member.pk %}">{{ member }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div class="submit-row">
+        <p class="deletelink-box"><a href="." class="deletelink">{% blocktrans %}Retry{% endblocktrans %}</a></p>
+    </div>
+
+{% else %}
+
+    <h2>
+        {% blocktrans count members=verified|length %}
+            Approve the following provisional member:
+        {% plural %}
+            Approve the following provisional members:
+        {% endblocktrans %}
+    </h2>
+    <ul>
+        {% for member in verified %}
+            <li><a href="{% url opts|admin_urlname:'change' member.pk %}">{{ member }}</a></li>
+        {% endfor %}
+    </ul>
+    <h2>
+        {% blocktrans count members=verified|length %}
+            Total: 1 member
+        {% plural %}
+            Total: {{ members }} members
+        {% endblocktrans %}
+    </h2>
+
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <div class="submit-row">
+            <input value="{% blocktrans %}Approve{% endblocktrans %}" class="default" name="_approve" type="submit">
+        </div>
+    </form>
+
+{% endif %}
+
+{% endblock %}

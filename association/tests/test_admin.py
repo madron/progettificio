@@ -1,3 +1,4 @@
+from django.contrib.admin import ACTION_CHECKBOX_NAME
 from django.core.urlresolvers import reverse
 from django.test import TestCase, override_settings
 from authentication.tests.factories import UserFactory
@@ -55,10 +56,12 @@ class ProvisionalMemberAdminTest(TestCase):
         self.list = reverse('admin:association_provisionalmember_changelist')
 
     def test_list(self):
+        factories.ProvisionalMemberFactory()
         response = self.client.get(self.list)
         self.assertEqual(response.status_code, 200)
         url = reverse('admin:association_provisionalmember_empty_request_pdf')
         self.assertContains(response, 'href="{0}"'.format(url))
+        self.assertContains(response, '<option value="approve_selected">')
 
     def test_search(self):
         data = dict(q='text')
@@ -99,7 +102,6 @@ class ProvisionalMemberAdminTest(TestCase):
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="request_joe_simon_simon.pdf"')
 
     def test_empty_request(self):
-        obj = factories.ProvisionalMemberFactory()
         url = reverse('admin:association_provisionalmember_empty_request')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -110,3 +112,23 @@ class ProvisionalMemberAdminTest(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response['Content-Disposition'], 'attachment; filename="request.pdf"')
+
+    def test_approve_selected_action(self):
+        members = [
+            factories.ProvisionalMemberFactory(pk=1, verified=True),
+            factories.ProvisionalMemberFactory(pk=2, verified=False),
+            factories.ProvisionalMemberFactory(pk=3, verified=True),
+        ]
+        data = dict(action='approve_selected')
+        data[ACTION_CHECKBOX_NAME] = [str(m.pk) for m in members]
+        response = self.client.post(self.list, data)
+        url = reverse('admin:association_provisionalmember_approve', kwargs=dict(selected='1-2-3'))
+        self.assertRedirects(response, url)
+
+    def test_approve_get(self):
+        factories.ProvisionalMemberFactory(pk=1, verified=True)
+        factories.ProvisionalMemberFactory(pk=2, verified=False)
+        factories.ProvisionalMemberFactory(pk=3, verified=True)
+        url = reverse('admin:association_provisionalmember_approve', kwargs=dict(selected='1-2-3'))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
