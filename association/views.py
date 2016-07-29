@@ -57,5 +57,4 @@ class ApproveProvisionalMembersView(FormView):
         return '/'
 
     def form_valid(self, form):
-        print form.cleaned_data
         return super(ApproveProvisionalMembersView, self).form_valid(form)
